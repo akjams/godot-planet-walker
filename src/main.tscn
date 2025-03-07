@@ -1,20 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://pr7ch5plnugx"]
+[gd_scene load_steps=9 format=3 uid="uid://pr7ch5plnugx"]
 
+[ext_resource type="Texture2D" uid="uid://dkk33mer3wds0" path="res://assets/sky-panorama.png" id="1_3cfgd"]
 [ext_resource type="PackedScene" uid="uid://dyb1u5v4qgi0c" path="res://src/hero.tscn" id="1_dv4om"]
 [ext_resource type="PackedScene" uid="uid://c5sh1raw8yh0m" path="res://src/planetSphere.tscn" id="2_rf74r"]
 [ext_resource type="PackedScene" uid="uid://uahhmlyy351k" path="res://src/planetBox.tscn" id="3_s1pl7"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f5mrw"]
-sky_horizon_color = Color(0.658976, 0.622563, 0.635577, 1)
-ground_bottom_color = Color(0.147472, 0.0693959, 0.0884766, 1)
-ground_horizon_color = Color(0.78557, 0.603403, 0.591506, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5q4o7"]
+panorama = ExtResource("1_3cfgd")
 
-[sub_resource type="Sky" id="Sky_y3aec"]
-sky_material = SubResource("ProceduralSkyMaterial_f5mrw")
+[sub_resource type="Sky" id="Sky_3cfgd"]
+sky_material = SubResource("PanoramaSkyMaterial_5q4o7")
 
 [sub_resource type="Environment" id="Environment_xbybw"]
 background_mode = 2
-sky = SubResource("Sky_y3aec")
+sky = SubResource("Sky_3cfgd")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -27,7 +26,7 @@ radius = 23.0
 environment = SubResource("Environment_xbybw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.625243, 0.205935, -0.75277, 0, 0.964557, 0.263873, 0.780431, -0.164985, 0.603082, 0, 0, 0)
+transform = Transform3D(-0.984808, 0.0301537, -0.17101, -7.45058e-09, 0.984808, 0.173648, 0.173648, 0.17101, -0.969846, -24.75, 28.75, -131)
 shadow_enabled = true
 
 [node name="Po" parent="." instance=ExtResource("1_dv4om")]

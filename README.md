@@ -8,6 +8,7 @@ Third person 3D arcade planet movement.
 | Click        | capture mouse        |
 | Mouse motion | move camera          |
 | ESC          | menu / release mouse |
+| N            | restart              |
 
 ## Gravity
 Godot's Area3Ds support point & directional gravity
