@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5sh1raw8yh0m"]
+
+[ext_resource type="Material" uid="uid://bk7nbd8td4gb1" path="res://assets-committed/textures/grey_checkerboard_mat.tres" id="1_lkrfv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f5mrw"]
+radius = 26.5
+
+[node name="planetSphere" type="Node3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+use_collision = true
+radius = 18.75
+radial_segments = 20
+rings = 20
+material = ExtResource("1_lkrfv")
+
+[node name="Area3D" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_f5mrw")

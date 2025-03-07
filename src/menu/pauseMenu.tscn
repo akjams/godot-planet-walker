@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://xoebeg0l0qxl"]
+
+[ext_resource type="Script" uid="uid://p84sc5c3f7a6" path="res://src/menu/pauseMenu.gd" id="1_okkk3"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_okkk3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -87.5
+offset_right = 88.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "--- Pause Menu ---"
+
+[node name="spacer" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="restart" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/resume" to="." method="onResumePressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/settings" to="." method="onSettingsPressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/restart" to="." method="onRestartPressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/quit" to="." method="onQuitPressed"]

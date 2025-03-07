@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SettingsRs" load_steps=2 format=3 uid="uid://blqpixmg6lf2t"]
+
+[ext_resource type="Script" uid="uid://c71q0n7myponh" path="res://src/rs/def/settingsRs.gd" id="1_gbf3k"]
+
+[resource]
+script = ExtResource("1_gbf3k")
+tuneVolumePercent = 0.75
+sfxVolumePercent = 0.75

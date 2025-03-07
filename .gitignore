@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.tmp
+addons/
+
+# Ignore everything in logs directory
+logs/**/*
+
+# But don't ignore the directories themselves
+!logs/
+!logs/**/
+!logs/**/.gitkeep
+
+# Ignore everything in pkg/ and subdirectories
+pkg/**
+
+# Exclude directories (so they're not ignored)
+!pkg/**/
+
+# Keep .gitkeep files
+!pkg/**/*.gitkeep

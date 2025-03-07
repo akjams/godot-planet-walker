@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyb1u5v4qgi0c"]
+
+[ext_resource type="Script" uid="uid://cjwcey66qal11" path="res://src/hero.gd" id="1_eg2fh"]
+[ext_resource type="PackedScene" uid="uid://cy36aygvs66pn" path="res://src/gdquest_gobot/gobot_skin.tscn" id="2_0ya8n"]
+[ext_resource type="Script" uid="uid://bgwp1vyx276wi" path="res://src/gravityDecider.gd" id="3_eg2fh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eg2fh"]
+radius = 0.4
+height = 1.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5rgmn"]
+radius = 0.75
+
+[node name="Hero" type="CharacterBody3D" node_paths=PackedStringArray("skin", "camYaw", "camPitch", "cam", "gravDecider")]
+script = ExtResource("1_eg2fh")
+skin = NodePath("GobotSkin")
+camYaw = NodePath("headPos/camYaw")
+camPitch = NodePath("headPos/camYaw/camPitch")
+cam = NodePath("headPos/camYaw/camPitch/SpringArm3D/Camera3D")
+gravDecider = NodePath("GravityDecider")
+metadata/_custom_type_script = "uid://cjwcey66qal11"
+
+[node name="GobotSkin" parent="." instance=ExtResource("2_0ya8n")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+shape = SubResource("CapsuleShape3D_eg2fh")
+
+[node name="headPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="camYaw" type="Node3D" parent="headPos"]
+
+[node name="camPitch" type="Node3D" parent="headPos/camYaw"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="headPos/camYaw/camPitch"]
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="headPos/camYaw/camPitch/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="GravityDecider" type="Area3D" parent="."]
+script = ExtResource("3_eg2fh")
+metadata/_custom_type_script = "uid://bgwp1vyx276wi"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GravityDecider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("SphereShape3D_5rgmn")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhkignx3vi1sa"]
+
+[ext_resource type="Script" uid="uid://be0odrl6khf7k" path="res://src/menu/settingsMenu.gd" id="1_eppk2"]
+
+[node name="SettingsMenu" type="CanvasLayer" node_paths=PackedStringArray("sfxAmt", "sfxSlider")]
+script = ExtResource("1_eppk2")
+sfxAmt = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/sfxAmt")
+sfxSlider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/sfxSlider")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = -87.5
+offset_right = 88.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "--------------- Settings Menu ---------------"
+
+[node name="spacer" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="sfxVolLab" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "sfx vol"
+
+[node name="sfxAmt" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "42%"
+
+[node name="sfxSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.42

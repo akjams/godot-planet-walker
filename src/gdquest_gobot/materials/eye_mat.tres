@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://div0enqs04w5j"]
+
+[ext_resource type="Texture2D" uid="uid://dq675fmt1rg8c" path="res://src/gdquest_gobot/textures/open_eye.png" id="1_relqg"]
+
+[resource]
+resource_local_to_scene = true
+albedo_texture = ExtResource("1_relqg")
+roughness = 0.6
+uv1_offset = Vector3(0.1, 0, 0)
+texture_repeat = false

@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://da176qy6813cj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4urq"]
+size = Vector3(16, 2.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vgux"]
+size = Vector3(16, 5, 2)
+
+[node name="planetRect" type="Node3D"]
+
+[node name="above" type="Area3D" parent="."]
+gravity_space_override = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="above"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_r4urq")
+
+[node name="front" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 0, 1)
+gravity_direction = Vector3(0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -3)
+shape = SubResource("BoxShape3D_5vgux")
+
+[node name="back" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 0, -1)
+gravity_direction = Vector3(0, 0, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="back"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 3)
+shape = SubResource("BoxShape3D_5vgux")
+
+[node name="below" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="below"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_r4urq")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0380859, 0.25, 0)
+use_collision = true
+size = Vector3(16, 0.5, 4)
