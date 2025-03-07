@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uahhmlyy351k"]
 
-[ext_resource type="Material" uid="uid://bv38axfuch3k5" path="res://assets-committed/textures/dark-grey-checkerboard-mat.tres" id="1_jab7h"]
+[ext_resource type="Material" uid="uid://bv38axfuch3k5" path="res://assets/textures/dark-grey-checkerboard-mat.tres" id="1_jab7h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4urq"]
 size = Vector3(16, 2.5, 4)

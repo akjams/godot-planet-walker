@@ -14,7 +14,7 @@ config/name="starterKit"
 run/main_scene="uid://pr7ch5plnugx"
 config/features=PackedStringArray("4.4", "Mobile")
 run/flush_stdout_on_print=true
-config/icon="res://assets-committed/icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
@@ -22,7 +22,6 @@ L="*res://src/global/logger.gd"
 DebugActions="*res://src/global/dbg/debugActions.gd"
 RootMenu="*res://src/global/rootMenu.gd"
 P="*res://src/global/Preloads.gd"
-Const="*res://src/global/const.gd"
 Saver="*res://src/global/saver.gd"
 DJ="*res://src/global/dj.gd"
 
@@ -40,7 +39,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray()
 
 [gdunit4]
 

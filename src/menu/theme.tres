@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://bokidbrpkrrfk"]
 
-[ext_resource type="FontFile" uid="uid://cbge0aa3wfv4e" path="res://assets-committed/ak-subset-regular.ttf" id="1_8q8v3"]
+[ext_resource type="FontFile" uid="uid://cbge0aa3wfv4e" path="res://assets/ak-subset-regular.ttf" id="1_8q8v3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxacn"]
 bg_color = Color(0.177444, 0.177444, 0.177444, 0.917647)

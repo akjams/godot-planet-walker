@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SfxRs" load_steps=3 format=3 uid="uid://vuuraytcl0fw"]
 
 [ext_resource type="Script" uid="uid://biip1dv3ulsso" path="res://src/rs/def/sfxRs.gd" id="1_3h6i1"]
-[ext_resource type="AudioStream" uid="uid://3sytmmlkbm25" path="res://assets-committed/tick.ogg" id="2_kt3l4"]
+[ext_resource type="AudioStream" uid="uid://3sytmmlkbm25" path="res://assets/tick.ogg" id="2_kt3l4"]
 
 [resource]
 script = ExtResource("1_3h6i1")

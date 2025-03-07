@@ -1,0 +1,9 @@
+{
+	"search.exclude": {
+		"**/venv": true,
+		"**/addons": true,
+		"**/.godot": true,
+		"**/logs": true,
+		"**/fonts": true,
+	},
+}

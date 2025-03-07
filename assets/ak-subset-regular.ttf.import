@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cbge0aa3wfv4e"
-path="res://.godot/imported/ak-subset-regular.ttf-74dea03016066a8d3a57bca0987fb99b.fontdata"
+path="res://.godot/imported/ak-subset-regular.ttf-401481b7d5ecfe64b32acde9ff41b8e6.fontdata"
 
 [deps]
 
-source_file="res://assets-committed/ak-subset-regular.ttf"
-dest_files=["res://.godot/imported/ak-subset-regular.ttf-74dea03016066a8d3a57bca0987fb99b.fontdata"]
+source_file="res://assets/ak-subset-regular.ttf"
+dest_files=["res://.godot/imported/ak-subset-regular.ttf-401481b7d5ecfe64b32acde9ff41b8e6.fontdata"]
 
 [params]
 

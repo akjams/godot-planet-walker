@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5sh1raw8yh0m"]
 
-[ext_resource type="Material" uid="uid://bk7nbd8td4gb1" path="res://assets-committed/textures/grey_checkerboard_mat.tres" id="1_lkrfv"]
+[ext_resource type="Material" uid="uid://bk7nbd8td4gb1" path="res://assets/textures/grey_checkerboard_mat.tres" id="1_lkrfv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f5mrw"]
 radius = 26.5

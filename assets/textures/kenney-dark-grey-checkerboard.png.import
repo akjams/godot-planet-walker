@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1uelfks0ip1w"
-path.s3tc="res://.godot/imported/grid_image.png-3539c1205f62156aa11ed6ee6b8f516a.s3tc.ctex"
+uid="uid://c7yth5opetwes"
+path.s3tc="res://.godot/imported/kenney-dark-grey-checkerboard.png-708bfa782772ba1a07e456ce71991a59.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets-committed/textures/grid_image.png"
-dest_files=["res://.godot/imported/grid_image.png-3539c1205f62156aa11ed6ee6b8f516a.s3tc.ctex"]
+source_file="res://assets/textures/kenney-dark-grey-checkerboard.png"
+dest_files=["res://.godot/imported/kenney-dark-grey-checkerboard.png-708bfa782772ba1a07e456ce71991a59.s3tc.ctex"]
 
 [params]
 
