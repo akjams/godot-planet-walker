@@ -10,7 +10,7 @@ class_name Hero extends CharacterBody3D
 @export var footcast: RayCast3D
 
 @export var lookSensitivity: float = .0009
-@export var jumpVel := 6.
+@export var jumpVel := 7.
 @export var autoBhop := true
 @export var walkSpeed := 7.
 @export var sprintSpeed := 8.5
@@ -114,6 +114,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	setSkinAnimation()
 
+	# on small spherical planets, snap our feet down
+	# avoid floating into slight orbits
+	# avoid animation stutter
 	if isNearlyOnFloor():
 		apply_floor_snap()
 
@@ -125,7 +128,6 @@ func feetToFloor(delta: float):
 	var newZ := (oldZ - newY * amountOfOldZPointingAtNewY).normalized()
 	var newX := newY.cross(newZ).normalized()
 
-	# TODO - lerp this
 	targetBasis = Basis(newX, newY, newZ)
 
 	# basis = targetBasis
@@ -151,8 +153,8 @@ func setSkinAnimation():
 		if isVelWithGravity:
 			skin.fall()
 		else:
-			# jump is done on action
-			# skin.jump()
+			# skin.jump is done on the action.
+			# if we fall away from gravity, idle instead
 			pass
 
 
