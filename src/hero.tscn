@@ -11,13 +11,15 @@ height = 1.25
 [sub_resource type="SphereShape3D" id="SphereShape3D_5rgmn"]
 radius = 0.75
 
-[node name="Hero" type="CharacterBody3D" node_paths=PackedStringArray("skin", "camYaw", "camPitch", "cam", "gravDecider")]
+[node name="Hero" type="CharacterBody3D" node_paths=PackedStringArray("skin", "camYaw", "camPitch", "cam", "gravDecider", "footcast")]
+floor_snap_length = 0.2
 script = ExtResource("1_eg2fh")
 skin = NodePath("GobotSkin")
 camYaw = NodePath("headPos/camYaw")
 camPitch = NodePath("headPos/camYaw/camPitch")
 cam = NodePath("headPos/camYaw/camPitch/SpringArm3D/Camera3D")
 gravDecider = NodePath("GravityDecider")
+footcast = NodePath("footcast")
 metadata/_custom_type_script = "uid://cjwcey66qal11"
 
 [node name="GobotSkin" parent="." instance=ExtResource("2_0ya8n")]
@@ -47,3 +49,6 @@ metadata/_custom_type_script = "uid://bgwp1vyx276wi"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GravityDecider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("SphereShape3D_5rgmn")
+
+[node name="footcast" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.25, 0)

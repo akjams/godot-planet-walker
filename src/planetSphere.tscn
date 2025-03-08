@@ -10,8 +10,8 @@ radius = 26.5
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 use_collision = true
 radius = 18.75
-radial_segments = 20
-rings = 20
+radial_segments = 100
+rings = 100
 material = ExtResource("1_lkrfv")
 
 [node name="Area3D" type="Area3D" parent="."]

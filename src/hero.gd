@@ -1,8 +1,4 @@
-class_name Po extends CharacterBody3D
-
-# old bungee ideas
-# @export var partner: Po
-# @export var isPlayer1 := true
+class_name Hero extends CharacterBody3D
 
 @onready var worldCollider: CollisionShape3D = $CollisionShape3D
 
@@ -11,6 +7,7 @@ class_name Po extends CharacterBody3D
 @export var camPitch: Node3D
 @export var cam: Camera3D
 @export var gravDecider: GravityDecider
+@export var footcast: RayCast3D
 
 @export var lookSensitivity: float = .0009
 @export var jumpVel := 6.
@@ -28,6 +25,8 @@ var wishDir := Vector3.ZERO
 var horizontalPlane: Plane
 var targetBasis: Basis
 
+var lastJumpTimeMs: int = -9000
+
 func getGravity() -> Vector3:
 	return gravDecider.getGravity()
 
@@ -36,6 +35,14 @@ func getGravDir() -> Vector3:
 	if grav.is_equal_approx(Vector3.ZERO):
 		return Vector3.UP
 	return grav.normalized()
+
+func isNearlyOnFloor() -> bool:
+	return is_on_floor() || \
+		(footcast.is_colliding() && !isJumping())
+
+func isJumping() -> bool:
+	return skin.isJumping() || \
+		lastJumpTimeMs + 100 > Util.nowMs()
 
 func getSpeed() -> float:
 	return walkSpeed
@@ -46,12 +53,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-	# TODO:
-	# if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 	if event is InputEventMouseMotion:
 		camYaw.rotate_y(-event.relative.x * lookSensitivity)
 		camPitch.rotate_x(-event.relative.y * lookSensitivity)
-		camPitch.rotation.x = clampf(camPitch.rotation.x, -PI/2, PI/2)
+		camPitch.rotation.x = clampf(camPitch.rotation.x, -PI/2 + .2, PI/2 - .2)
 
 func airPhysics(delta: float):
 	velocity += getGravity() * delta
@@ -87,6 +92,8 @@ func groundPhysics(delta: float):
 		var jumpVec := -getGravDir() * jumpVel
 		velocity += jumpVec
 		skin.jump()
+		# skin.flip()
+		lastJumpTimeMs = Util.nowMs()
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector('hero-left', 'hero-right', 'hero-forward', 'hero-back')
@@ -97,7 +104,7 @@ func _physics_process(delta: float) -> void:
 	feetToFloor(delta)
 	faceForward(delta)
 
-	if is_on_floor():
+	if isNearlyOnFloor():
 		groundPhysics(delta)
 	else:
 		airPhysics(delta)
@@ -106,6 +113,9 @@ func _physics_process(delta: float) -> void:
 	up_direction = -getGravDir()
 	move_and_slide()
 	setSkinAnimation()
+
+	if isNearlyOnFloor():
+		apply_floor_snap()
 
 func feetToFloor(delta: float):
 	var oldZ := basis.z
@@ -122,37 +132,31 @@ func feetToFloor(delta: float):
 	basis = basis.slerp(targetBasis, delta * 3)
 
 func faceForward(delta: float):
-	# var velInUpDir := targetBasis.y * velocity.dot(targetBasis.y)
-	# var horizontalVel := velocity - velInUpDir
-	# if horizontalVel.length() < .05:
-	# 	return
-	# var desiredForward := horizontalVel.normalized()
 	var desiredForward := wishDir
 
 	var currForward := -targetBasis.z
 	var bigAngle := currForward.signed_angle_to(desiredForward, targetBasis.y)
 	var smallAngle := bigAngle * delta * 18
-	# buggy causes unable to turn right
-	# smallAngle = clampf(smallAngle, -bigAngle, bigAngle)
 	rotate(targetBasis.y, smallAngle)
 	camYaw.rotate_y(-smallAngle)
 
 func setSkinAnimation():
-	if is_on_floor():
+	if isNearlyOnFloor():
 		if wishDir.is_equal_approx(Vector3.ZERO):
 			skin.idle()
 		else:
 			skin.run()
 	else:
 		var isVelWithGravity := velocity.dot(getGravDir()) > 0
-		if isVelWithGravity && skin.isJumping():
+		if isVelWithGravity:
 			skin.fall()
-		if !skin.isJumping() && !skin.isFalling():
-			skin.idle()
-		# 	pass
-		# else:
-		# 	skin.jump()
+		else:
+			# jump is done on action
+			# skin.jump()
+			pass
+
+
 
 
 func _to_string() -> String:
-	return 'Po: pos-vel %s-%s' % [position, velocity]
+	return 'Hero: pos-vel %s-%s' % [position, velocity]
