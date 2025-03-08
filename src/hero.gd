@@ -129,9 +129,11 @@ func feetToFloor(delta: float):
 	var newX := newY.cross(newZ).normalized()
 
 	targetBasis = Basis(newX, newY, newZ)
-
-	# basis = targetBasis
-	basis = basis.slerp(targetBasis, delta * 3)
+	var targetQuat = Quaternion(targetBasis)
+	var currQuat = Quaternion(basis)
+	var slerpedQuat = currQuat.slerp(targetQuat, delta * 3)
+	basis = Basis(slerpedQuat)
+	# basis = basis.slerp(targetBasis, delta * 3)
 
 func faceForward(delta: float):
 	var desiredForward := wishDir

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://pr7ch5plnugx"]
+[gd_scene load_steps=10 format=3 uid="uid://pr7ch5plnugx"]
 
 [ext_resource type="Texture2D" uid="uid://dkk33mer3wds0" path="res://assets/sky-panorama.png" id="1_3cfgd"]
 [ext_resource type="PackedScene" uid="uid://dyb1u5v4qgi0c" path="res://src/hero.tscn" id="1_dv4om"]
@@ -17,6 +17,9 @@ sky = SubResource("Sky_3cfgd")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3cfgd"]
+radius = 23.0
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_7jq7j"]
 radius = 23.0
 
@@ -30,7 +33,7 @@ transform = Transform3D(-0.984808, 0.0301537, -0.17101, -7.45058e-09, 0.984808, 
 shadow_enabled = true
 
 [node name="Po" parent="." instance=ExtResource("1_dv4om")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.25, 24)
+transform = Transform3D(1, 0, 0, 0, -0.173648, 0.984808, 0, -0.984808, -0.173648, -0.0149575, 19.4931, 2.0363)
 
 [node name="world" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24, 0)
@@ -45,7 +48,19 @@ transform = Transform3D(0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0, 1, 20
 transform = Transform3D(0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0, 1, -9.96905, 24.5401, 0)
 
 [node name="planetSphere5" parent="world" instance=ExtResource("2_rf74r")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.1, 13.8, 28.725)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.1, 13.275, 24.75)
+
+[node name="planetSphere6" parent="world" instance=ExtResource("2_rf74r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.1, 25.65, 33.675)
+
+[node name="planetSphere8" parent="world" instance=ExtResource("2_rf74r")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.1, 44.55, 8.025)
+
+[node name="planetSphere7" parent="world" instance=ExtResource("2_rf74r")]
+transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, -0.1, 44.175, 26.85)
+
+[node name="CollisionShape3D" parent="world/planetSphere7/Area3D" index="0"]
+shape = SubResource("SphereShape3D_3cfgd")
 
 [node name="planetSphere3" parent="world" instance=ExtResource("2_rf74r")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.425, 35.925, 0)
@@ -63,6 +78,9 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 24.875, 13.8, 0)
 
 [editable path="world/planetBox"]
 [editable path="world/planetSphere5"]
+[editable path="world/planetSphere6"]
+[editable path="world/planetSphere8"]
+[editable path="world/planetSphere7"]
 [editable path="world/planetSphere3"]
 [editable path="world/planetSphere4"]
 [editable path="world/planetSphere"]

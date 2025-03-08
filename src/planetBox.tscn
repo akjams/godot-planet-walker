@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uahhmlyy351k"]
 
-[ext_resource type="Material" uid="uid://bv38axfuch3k5" path="res://assets/textures/dark-grey-checkerboard-mat.tres" id="1_jab7h"]
+[ext_resource type="Material" uid="uid://bc38r7b2rfdkm" path="res://assets/textures/kenney-grey-checkerboard-mat.tres" id="1_o3ljk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r4urq"]
 size = Vector3(16, 2.5, 4)
@@ -49,4 +49,4 @@ shape = SubResource("BoxShape3D_r4urq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0380859, 0, 0)
 use_collision = true
 size = Vector3(16, 2, 4)
-material = ExtResource("1_jab7h")
+material = ExtResource("1_o3ljk")
