@@ -140,7 +140,9 @@ func faceForward(delta: float):
 
 	var currForward := -targetBasis.z
 	var bigAngle := currForward.signed_angle_to(desiredForward, targetBasis.y)
-	var smallAngle := bigAngle * delta * 18
+	var amount := delta * 18
+	amount = clampf(amount, 0, 1)
+	var smallAngle := bigAngle * amount
 	rotate(targetBasis.y, smallAngle)
 	camYaw.rotate_y(-smallAngle)
 
