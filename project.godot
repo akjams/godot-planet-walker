@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="starterKit"
+config/name="planet-walker"
 run/main_scene="uid://pr7ch5plnugx"
 config/features=PackedStringArray("4.4", "Mobile")
 run/flush_stdout_on_print=true

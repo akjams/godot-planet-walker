@@ -21,3 +21,8 @@ What to do when Area3Ds overlap?
 3. Use the most recent area entered
 
 GravityDecider does (3) for an arcade feel, a la Super Mario Galaxy
+
+## Improve
+1. Erratic camera
+2. Custom gravity shapes: cylinder, torus, cone.
+3. Arbitrary blob planets that use closest normal vector for gravity?
