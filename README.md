@@ -10,6 +10,10 @@ Third person 3D arcade planet movement.
 | ESC          | menu / release mouse |
 | N            | restart              |
 
+## Video
+
+https://github.com/user-attachments/assets/aa61b0bc-468e-4eb4-9d06-293f3d463cd7
+
 ## Gravity
 Godot's Area3Ds support point & directional gravity
 - Point gravity used for spherical planets
